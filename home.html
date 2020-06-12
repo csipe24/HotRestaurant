@@ -7,16 +7,41 @@
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
+    <script src="https://use.fontawesome.com/58430259a8.js"></script>
+    <style>
+        h1  {
+            color: red;
+            text-align: center;
+            margin-top: 30px;            
+        }
+        h3 {
+        color: rgb(105, 100, 100);
+        text-align: center;
+        margin-top: 20px;  
+        }  
+    </style>
 <body>
 <div class="jumbotron">
     <h1>Hot Restaurant</h1>
-    <h3>Book your tables</h3>
+    <h3>We only have 5 tables! Book your seat before they all are gone!</h3>
     <hr>
     <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make Reservation</button></a>
+    <a href="/tables"><button class="btn btn-secondary btn-lg"><span class="fa fa-cutlery"></span> View Tables</button></a>
     <a href="/api/characters"><button class="btn btn-danger btn-lg"><span
           class="fa fa-home"></span></button></a>
   </div>
 
+<!-- //Back End Links -->
+<div class="backend" id="backend">
+    <div class="container">
+        <button type="button" class="btn btn-secondary btn-sm" href="insert API Link">
+        API Link
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" href="insert API Link">
+        API Wait List
+        </button>
+</div>
+</div>
+
 </body>
+</html>
