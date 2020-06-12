@@ -29,8 +29,7 @@
             <h3><strong>Current Reservations</strong></h3>
           </div>
             <div class="card-body">
-            <div class="text-left">
-                  <p>Reservations Go Here (Delete Soon)</p>
+            <div class="text-left"  id="reservations"> 
             </div>
             </div>
           </div>
@@ -43,8 +42,7 @@
             <h3><strong>Current Wait List</strong></h3>
           </div>
             <div class="card-body">
-            <div class="text-left">
-                  <p>Waitlist Go Here (Delete Soon)</p>
+            <div class="text-left" id="waitlist">
             </div>
             </div>
           </div>
@@ -59,5 +57,30 @@
       </div>
 </body>
 
+<script type="text/javascript">
+  $.ajax({
+        url: '/api/reservations',
+        method: 'GET'
+        })
+  .then(function (response) {
+        console.log(response.reservations);
+        if (response) {
+        const reservationSection = $('#reservation');
+        const waitlistSection = $('#waitlist');
+
+        function displayReservation() {
+          var resDiv = $('<div>').addClass('card');
+          resDiv.append($('<h4>').text(`Name: ${this.name}`));
+          resDiv.append($('<h4>').text(`Phone Number: ${this.phoneNumber}`));
+          resDiv.append($('<h4>').text(`Email: ${this.email}`));
+          resDiv.append($('<h4>').text(`Unique ID: ${this.id}`));
+          reservationSection.append(resDiv);
+        }
+
+        response.reservations.forEach(displayReservation());
+        
+        response.waitlist.forEach(displayReservation());
+
+</script>
 
 </html>

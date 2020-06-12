@@ -48,7 +48,7 @@
                       <label for="id">Unique ID</label>
                       <input type="id" class="form-control" id="id">
                     </div>
-                    <button type="submit" id="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" id="submitRes" class="btn btn-dark">Submit</button>
                   </form>
                 </div>
               </div>
@@ -68,7 +68,7 @@
 
   <script type="text/javascript">
 
-      $("#submit").on("click", function(event) {
+      $("#submitRes").on("click", function(event) {
       event.preventDefault();
         var newReservation = {
           name: $("#name").val().trim(),
@@ -86,6 +86,7 @@
 
 </script>
 
+</div>
 
 </html>
 
