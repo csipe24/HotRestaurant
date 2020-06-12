@@ -1,6 +1,7 @@
 // Dependencies
 var express = require("express");
 var path = require("path");
+var reservation = require("./lib/Reservation.js");
 
 // Sets up the Express app
 var app = express();
@@ -13,15 +14,36 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 // Data
-var reservations = [{}];
-var waitlist = [{}];
+var reservations = [];
+var waitlist = [];
+
+// POST requests
+if (reservations.length <= 4) {
+    app.post("/api/reservations", function (req, res) {
+
+        var reservation = req.body;
+        reservations.push(reservation);
+        res.json(reservation);
+
+    });
+
+} else {
+    app.post("/api/waitlist", function (req, res) {
+
+        var reservation = req.body;
+        waitlist.push(reservation);
+        res.json(reservation);
+
+    });
+
+}
 
 // API Routes
-app.get("/api/reservations", function(req, res) {
+app.get("/api/reservations", function (req, res) {
     return res.json(reservations);
 });
 
-app.get("/api/waitlist", function(req, res) {
+app.get("/api/waitlist", function (req, res) {
     return res.json(waitlist);
 });
 
