@@ -75,11 +75,13 @@
           resDiv.append($('<h4>').text(`Email: ${this.email}`));
           resDiv.append($('<h4>').text(`Unique ID: ${this.id}`));
           reservationSection.append(resDiv);
-        }
+        };
 
         response.reservations.forEach(displayReservation());
         
         response.waitlist.forEach(displayReservation());
+        }
+  });
 
 </script>
 
